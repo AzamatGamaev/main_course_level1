@@ -62,6 +62,6 @@ public class Emploee {
     }
 
     public void getInfoAbout() {
-        System.out.println(name + " " + position + " " + mail + " " + telephoneNumber + " " + salary + " " + age + " ");
+        System.out.println(name + " " + position + " " + mail + " " + telephoneNumber + " " + salary + " " + age + " "); //view personnel info on console
     }
 }
