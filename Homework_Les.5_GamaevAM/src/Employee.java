@@ -1,9 +1,9 @@
-public class Emploee {
+public class Employee {
 
     private String name, position, mail, telephoneNumber;
     private int salary, age;
 
-    Emploee(String name, String position, String mail, String telephoneNumber, int salary, int age) {
+    Employee(String name, String position, String mail, String telephoneNumber, int salary, int age) {
         this.name = name;
         this.position = position;
         this.mail = mail;
