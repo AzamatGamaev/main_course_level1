@@ -61,7 +61,7 @@ public class Employee {
             this.age = age;
     }
 
-    public void getInfoAbout() {
-        System.out.println(name + " " + position + " " + mail + " " + telephoneNumber + " " + salary + " " + age + " ");
+    public String getInfoAbout() {
+        return String.join(" | ", name, position, mail, telephoneNumber, String.valueOf(salary), String.valueOf(age));
     }
 }
