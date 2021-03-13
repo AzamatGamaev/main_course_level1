@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Homework_Les.1_GamaevAM/Homework_Les.1_GamaevAM.iml" filepath="$PROJECT_DIR$/Homework_Les.1_GamaevAM/Homework_Les.1_GamaevAM.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Homework_Les.2_GamaevAM/Homework_Les.2_GamaevAM.iml" filepath="$PROJECT_DIR$/Homework_Les.2_GamaevAM/Homework_Les.2_GamaevAM.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Homework_Les.3_2_GamaevAM/Homework_Les.3_2_GamaevAM.iml" filepath="$PROJECT_DIR$/Homework_Les.3_2_GamaevAM/Homework_Les.3_2_GamaevAM.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Homework_Les.3_GamaevAM/Homework_Les.3_GamaevAM.iml" filepath="$PROJECT_DIR$/Homework_Les.3_GamaevAM/Homework_Les.3_GamaevAM.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Homework_Les.4_GamaevAM/Homework_Les.4_GamaevAM.iml" filepath="$PROJECT_DIR$/Homework_Les.4_GamaevAM/Homework_Les.4_GamaevAM.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Homework_Les.5_GamaevAM/Homework_Les.5_GamaevAM.iml" filepath="$PROJECT_DIR$/Homework_Les.5_GamaevAM/Homework_Les.5_GamaevAM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework_Les.1/Homework_Les.1.iml" filepath="$PROJECT_DIR$/Homework_Les.1/Homework_Les.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework_Les.2/Homework_Les.2.iml" filepath="$PROJECT_DIR$/Homework_Les.2/Homework_Les.2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework_Les.3/Homework_Les.3.iml" filepath="$PROJECT_DIR$/Homework_Les.3/Homework_Les.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework_Les.3_2/Homework_Les.3_2.iml" filepath="$PROJECT_DIR$/Homework_Les.3_2/Homework_Les.3_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework_Les.4/Homework_Les.4.iml" filepath="$PROJECT_DIR$/Homework_Les.4/Homework_Les.4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework_Les.5/Homework_Les.5.iml" filepath="$PROJECT_DIR$/Homework_Les.5/Homework_Les.5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework_Les.6/Homework_Les.6.iml" filepath="$PROJECT_DIR$/Homework_Les.6/Homework_Les.6.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Main Course.iml" filepath="$PROJECT_DIR$/.idea/Main Course.iml" />
     </modules>
   </component>
