@@ -20,7 +20,7 @@ public class Main {
         cats[2]= new Cat("Musya", 25);
 
 
-        for (Cat cat : cats) {
+        for (Cat cat : cats) {//
             cat.isHungry(plate.getFood());
             cat.eat(plate);
         }
