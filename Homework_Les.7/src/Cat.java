@@ -5,7 +5,7 @@ public class Cat {
     private boolean satiety;
 
     public Cat(String name, int appetite) {
-        if (appetite < 0) {
+        if (appetite <= 0) {
             throw new IllegalArgumentException("The appetite value must be greater than 0");
         }
         this.name = name;

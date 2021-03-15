@@ -4,7 +4,7 @@ public class Plate {
 
     public Plate(int food) {
         if (food<0) {
-            throw new IllegalArgumentException("The appetite value must be greater than 0");
+            throw new IllegalArgumentException("The food can't be negative");
         }
         this.food = food;
     }
@@ -23,7 +23,7 @@ public class Plate {
 
     public void decreaseFood(int catAppetite) {
         if ((food - catAppetite) < 0) {
-            System.out.println("A cat cannot eat more food than is available.");
+            System.out.println("Cat cannot eat more food than is available.");
         } else {
             food -= catAppetite;
         }
