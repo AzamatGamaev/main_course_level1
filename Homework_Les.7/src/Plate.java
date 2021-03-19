@@ -22,12 +22,13 @@ public class Plate {
     }
 
     public void decreaseFood(int catAppetite) {
+        System.out.println();
         if ((food - catAppetite) < 0) {
             System.out.println("Cat cannot eat more food than is available.");
         } else {
             food -= catAppetite;
         }
-        System.out.println();
+
     }
 
     public void addFood (int addingFood) {

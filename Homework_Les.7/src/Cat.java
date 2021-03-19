@@ -10,7 +10,7 @@ public class Cat {
         }
         this.name = name;
         this.appetite = appetite;
-        this.satiety = false;
+        this.satiety = true;
     }
 
     public String getName() {
@@ -30,6 +30,11 @@ public class Cat {
     }
 
     public boolean isSatiety() {
+        if (satiety) {
+            System.out.println("Cat  " + name + " is well fed.");
+        } else {
+            System.out.println("Cat  " + name + " is hungry.");
+        }
         return satiety;
     }
 
@@ -37,17 +42,8 @@ public class Cat {
         this.satiety = satiety;
     } //Default Getters and Setters
 
-    public void eat(Plate catAppetite) {
+    public void eat(Plate catAppetite, int availableFood) {
         catAppetite.decreaseFood(appetite);
-    }
-
-    public void isHungry(int availableFood) {
-        if (availableFood < appetite) {
-            satiety = false;
-            System.out.println("Cat " + name + " is hungry.");
-        } else {
-            satiety = true;
-            System.out.println("Cat  " + name + " is well fed.");
-        }
+        satiety = availableFood >= appetite;
     }
 }

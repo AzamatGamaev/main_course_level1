@@ -6,13 +6,12 @@ public class Main {
         Plate plate = new Plate(50);
 
         plate.info();
-        catBarsik.eat(plate);
+        catBarsik.eat(plate, plate.getFood());
+        catBarsik.isSatiety();
         plate.info();
-        catBarsik.isHungry(plate.getFood());
 
         plate.addFood(30);
         plate.info();
-        System.out.println();
 
         Cat[] cats = new Cat[3];
         cats[0]= new Cat("Tom", 25);
@@ -21,8 +20,8 @@ public class Main {
 
 
         for (Cat cat : cats) {//
-            cat.isHungry(plate.getFood());
-            cat.eat(plate);
+            cat.eat(plate, plate.getFood());
+            cat.isSatiety();
         }
     }
 }
