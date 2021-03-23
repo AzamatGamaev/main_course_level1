@@ -14,7 +14,7 @@ public class Configuration extends JDialog implements Configurable {
     public static final int MARGIN_VALUE = 5;
     public DotType playerType = DotType.X;
     public int mapSize = 3;
-    public int dotsToWin = 4;
+    public int dotsToWin = 3;
 
     public Configuration(JFrame parentFrame) {
         super(parentFrame, "Конфигурация игры", true);

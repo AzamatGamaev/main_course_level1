@@ -13,17 +13,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class MainWindow extends JFrame {
 
     public static final String DOT_EMPTY = "*";
     private static final int TXT_SIZE = 32;
-
     private StatusBar statusBar;
-
     private DotType playerType;
     private GameService gameService;
-
     private JButton[][] buttons;
+
 
     public MainWindow() {
         setTitle("Крестики нолики");
