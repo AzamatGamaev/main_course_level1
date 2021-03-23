@@ -31,13 +31,14 @@ public class MainWindow extends JFrame {
         setBounds(300, 300, 400, 400);
 
         statusBar = new StatusBar();
-        statusBar.setMessage("Ожидание хода игрока");
+        statusBar.setMessage("Ожидание хода игрока...");
 
         Configurable configurable = new Configuration(this);
         int mapSize = configurable.getMapSize();
+        int dotsToWin = configurable.getDotsToWin();
         playerType = configurable.getPlayerType();
 
-        gameService = new GameServiceImpl(mapSize, playerType);
+        gameService = new GameServiceImpl(mapSize, dotsToWin, playerType);
 
         setLayout(new BorderLayout());
         add(createGridButtons(mapSize));
@@ -45,6 +46,7 @@ public class MainWindow extends JFrame {
 
         setVisible(true);
     }
+
 
     private JPanel createGridButtons(int mapSize) {
         JPanel gridPanel = new JPanel(new GridLayout(mapSize, mapSize));
@@ -74,7 +76,6 @@ public class MainWindow extends JFrame {
 
                 if (isGameContinue(playerType) && isGameContinue(DotType.getEnemyType(playerType))) {
                     doAiTurn();
-                    statusBar.setMessage("Ход игрока...");
                 } else {
                     finishGame();
                 }
@@ -83,21 +84,28 @@ public class MainWindow extends JFrame {
     }
 
     private void finishGame() {
-        statusBar.setMessage("Игра окончена!");
+        if (gameService.isMapFull() & !(gameService.checkWin(playerType) | gameService.checkWin(DotType.getEnemyType(playerType))))
+        {
+            statusBar.setMessage("Игра окончена! Ходов больше нет...");
+        } else if (gameService.checkWin(DotType.getEnemyType(playerType))) {statusBar.setMessage("Вы проиграли.(");}
+        else statusBar.setMessage("Вы выиграли!");
         disableAllButtons();
     }
 
+
     private void disableAllButtons() {
-        for (int i = 0; i < buttons.length; i++) {
+        for (JButton[] button : buttons) {
             for (int j = 0; j < buttons.length; j++) {
-                buttons[i][j].setEnabled(false);
+                button[j].setEnabled(false);
             }
         }
     }
 
+
     private boolean isGameContinue(DotType dotType) {
         return !gameService.checkWin(dotType) && !gameService.isMapFull();
     }
+
 
     private void doAiTurn() {
         statusBar.setMessage("Ход компьютера...");
@@ -106,11 +114,13 @@ public class MainWindow extends JFrame {
         JButton aiSelectedButton = buttons[coordinate.getRow()][coordinate.getColumn()];
 
         disableButtonWithMark(aiSelectedButton, DotType.getEnemyType(playerType));
+        statusBar.setMessage("Ход игрока...");
 
         if (!isGameContinue(DotType.getEnemyType(playerType))) {
             finishGame();
         }
     }
+
 
     private void doHumanTurn(JButton selectedButton) {
         int rowIndex = (int) selectedButton.getClientProperty("INDEX_ROW");
@@ -120,6 +130,7 @@ public class MainWindow extends JFrame {
 
         disableButtonWithMark(selectedButton, playerType);
     }
+
 
     private void disableButtonWithMark(JButton button, DotType dotType) {
         button.setEnabled(false);

@@ -1,7 +1,9 @@
 package core;
 
+
 import core.domain.MatrixCoordinate;
 import core.enums.DotType;
+
 
 public interface GameService {
 

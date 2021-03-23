@@ -11,56 +11,48 @@ import java.awt.event.WindowEvent;
 
 public class Configuration extends JDialog implements Configurable {
 
-    public static final int MARGIN_VALUE = 10;
+    public static final int MARGIN_VALUE = 5;
     public DotType playerType = DotType.X;
     public int mapSize = 3;
+    public int dotsToWin = 4;
 
     public Configuration(JFrame parentFrame) {
         super(parentFrame, "Конфигурация игры", true);
 
-        setBounds(300, 300, 400, 200);
+        setBounds(300, 300, 800, 170);
 
-        // Создаем поле для ввода размера игровой карты
         JTextField mapSizeTextField = new JTextField(String.valueOf(mapSize));
+        JTextField dotsSizeTextField = new JTextField(String.valueOf(dotsToWin));
+        JPanel commonPanel = getConfigurationPanel(mapSizeTextField, dotsSizeTextField);
+        JButton applyButton = createApplyButton(mapSizeTextField,dotsSizeTextField);
 
-        JPanel commonPanel = getConfigurationPanel(mapSizeTextField);
-
-        JButton applyButton = createApplyButton(mapSizeTextField);
-
-
-        // В центре размещаем Grid панель с параметрами конфигурации, а внизу кнопку для выхода
         setLayout(new BorderLayout());
         add(commonPanel, BorderLayout.CENTER);
         add(applyButton, BorderLayout.SOUTH);
 
-        // Устанавливаем отступы для параметров от края экрана
         commonPanel.setBorder(BorderFactory.createEmptyBorder(MARGIN_VALUE, MARGIN_VALUE, MARGIN_VALUE, MARGIN_VALUE));
-
         setVisible(true);
     }
 
 
-    private JPanel getConfigurationPanel(JTextField mapSizeTextField) {
+    private JPanel getConfigurationPanel(JTextField mapSizeTextField, JTextField dotsSizeTextField) {
         int gridSize = 2;
-        int horizontalGap = 10; // отступ по горизонтали между компонентами
-        int verticalGap = 20; // отступ по вертикали между компонентами
+        int horizontalGap = 10;
+        int verticalGap = 10;
 
         JPanel commonPanel = new JPanel(new GridLayout(gridSize, gridSize, horizontalGap, verticalGap));
         commonPanel.add(new JLabel("Выберите за кого вы будете играть?"));
-        commonPanel.add(createChoiceButtonPanel());
         commonPanel.add(new JLabel("Укажите размер игрового поля"));
+        commonPanel.add(new JLabel("Укажите количество фишек для выигрыша"));
+        commonPanel.add(createChoiceButtonPanel());
         commonPanel.add(mapSizeTextField);
-
+        commonPanel.add(dotsSizeTextField);
 
         return commonPanel;
     }
 
-    /**
-     * В методе создается кнопка завершения игры
-     *
-     * @param mapSizeTextField текстовое поле, из которого надо вытащить размерность игровой карты
-     */
-    private JButton createApplyButton(JTextField mapSizeTextField) {
+
+    private JButton createApplyButton(JTextField mapSizeTextField, JTextField dotsSizeTextField) {
         JButton applyButton = new JButton("Принять");
 
         WindowEvent closeEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
@@ -68,16 +60,15 @@ public class Configuration extends JDialog implements Configurable {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mapSize = Integer.parseInt(mapSizeTextField.getText());
+                dotsToWin = Integer.parseInt(dotsSizeTextField.getText());
                 dispatchEvent(closeEvent);
+
             }
         });
-
         return applyButton;
     }
 
-    /**
-     * В методе создается панель с кнопками для выбора крестика или нолика.
-     */
+
     private JPanel createChoiceButtonPanel() {
         JRadioButton xButtonChoice = getRadioButton("X", DotType.X, true);
         JRadioButton oButtonChoice = getRadioButton("O", DotType.O, false);
@@ -94,14 +85,7 @@ public class Configuration extends JDialog implements Configurable {
         return buttonPanel;
     }
 
-    /**
-     * Метод создает RadioButton и добавляет ей обработчик,
-     * который по клику устанавливает выбранным крестик или нолик
-     *
-     * @param text текст кнопки
-     * @param buttonDotType тип кнопки (X или O)
-     * @param selected выбрано ли поле по умолчанию
-     */
+
     private JRadioButton getRadioButton(String text, DotType buttonDotType, boolean selected) {
         JRadioButton choiceBtn = new JRadioButton(text, selected);
         choiceBtn.addActionListener(new ActionListener() {
@@ -114,14 +98,22 @@ public class Configuration extends JDialog implements Configurable {
         return choiceBtn;
     }
 
+
     @Override
     public DotType getPlayerType() {
         return playerType;
     }
 
+
     @Override
     public int getMapSize() {
         return mapSize;
+    }
+
+
+    @Override
+    public int getDotsToWin() {
+        return dotsToWin;
     }
 
 }
