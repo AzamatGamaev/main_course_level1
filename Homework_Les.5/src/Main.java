@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,6 +12,6 @@ public class Main {
         personArray[3] = new Employee("Orlov Vladimir", "Manager", "vladimir@mailbox.com", "892312312", 50000, 53);
         personArray[4] = new Employee("Rubinov Evgeny", "Accountant", "evgeny@mailbox.com", "892312312", 60000, 42);
 
-        for (Employee employee : personArray) if (employee.getAge() > 40) employee.getInfoAbout();
+        Arrays.stream(personArray).filter(employee -> employee.getAge() > 40).forEach(Employee::getInfoAbout);
     }
 }
